@@ -5,8 +5,14 @@ import React, { Fragment } from 'react';
 import { AiOutlineShareAlt } from 'react-icons/ai';
 import { VscFeedback } from 'react-icons/vsc';
 import MapSection from '@/components/home/MapSection';
+import { NextPage } from 'next';
+import { Store } from '@/types/store';
 
-export default function Home() {
+interface Props {
+  stores: Store[];
+}
+
+const Home: NextPage<Props> = ({ stores }) => {
   return (
     <Fragment>
       <Header
@@ -33,4 +39,15 @@ export default function Home() {
       </main>
     </Fragment>
   );
+};
+
+export default Home;
+
+export async function getStaticProps() {
+  const stores = (await import('../public/stores.json')).default;
+
+  return {
+    props: { stores },
+    revalidate: 60 * 60,
+  };
 }
