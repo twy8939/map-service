@@ -1,9 +1,10 @@
-import Header from '@/components/Header';
+import Header from '@/components/common/Header';
 import Link from 'next/link';
 import styles from '../styles/header.module.scss';
 import React, { Fragment } from 'react';
 import { AiOutlineShareAlt } from 'react-icons/ai';
 import { VscFeedback } from 'react-icons/vsc';
+import MapSection from '@/components/home/MapSection';
 
 export default function Home() {
   return (
@@ -27,6 +28,9 @@ export default function Home() {
           </Link>,
         ]}
       />
+      <main style={{ width: '100%', height: '100%' }}>
+        <MapSection />
+      </main>
     </Fragment>
   );
 }
