@@ -1,18 +1,24 @@
 import Header from '@/components/common/Header';
 import Link from 'next/link';
 import styles from '../styles/header.module.scss';
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { AiOutlineShareAlt } from 'react-icons/ai';
 import { VscFeedback } from 'react-icons/vsc';
 import MapSection from '@/components/home/MapSection';
 import { NextPage } from 'next';
 import { Store } from '@/types/store';
+import useStores from '@/hooks/useStores';
 
 interface Props {
   stores: Store[];
 }
 
 const Home: NextPage<Props> = ({ stores }) => {
+  const { initializeStores } = useStores();
+
+  useEffect(() => {
+    initializeStores(stores);
+  }, [initializeStores, stores]);
   return (
     <Fragment>
       <Header
