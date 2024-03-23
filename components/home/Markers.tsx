@@ -5,6 +5,7 @@ import { Store } from '@/types/store';
 import React from 'react';
 import useSWR from 'swr';
 import Marker from './Marker';
+import { generateStoreMarkerIcon } from '@/shared/generateStoreMarkerIcon';
 
 const Markers = () => {
   const { data: map } = useSWR<NaverMap>(MAP_KEY);
@@ -16,7 +17,12 @@ const Markers = () => {
     <>
       {stores.map((store) => {
         return (
-          <Marker map={map} coordinates={store.coordinates} key={store.nid} />
+          <Marker
+            map={map}
+            coordinates={store.coordinates}
+            icon={generateStoreMarkerIcon(store.season)}
+            key={store.nid}
+          />
         );
       })}
     </>
