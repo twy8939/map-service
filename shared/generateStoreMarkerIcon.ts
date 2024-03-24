@@ -8,9 +8,12 @@ const SCALE = 2 / 3;
 const SCALED_MARKER_WIDTH = MARKER_WIDTH * SCALE;
 const SCALED_MARKER_HEIGHT = MARKER_HEIGHT * SCALE;
 
-export function generateStoreMarkerIcon(markerIndex: number): ImageIcon {
+export function generateStoreMarkerIcon(
+  markerIndex: number,
+  isSelected: boolean
+): ImageIcon {
   return {
-    url: 'images/markers.png',
+    url: isSelected ? 'images/markers-selected.png' : 'images/markers.png',
     size: new naver.maps.Size(SCALED_MARKER_WIDTH, SCALED_MARKER_HEIGHT),
     origin: new naver.maps.Point(SCALED_MARKER_WIDTH * markerIndex, 0),
     scaledSize: new naver.maps.Size(
