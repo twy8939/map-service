@@ -4,14 +4,15 @@ import React from 'react';
 import styles from '@/styles/header.module.scss';
 
 interface HeaderProps {
+  onClickLogo?: () => void;
   rightElements?: React.ReactNode;
 }
 
-export default function Header({ rightElements }: HeaderProps) {
+export default function Header({ onClickLogo, rightElements }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.flexItem}>
-        <Link href="/" className={styles.box}>
+        <Link href="/" className={styles.box} onClick={onClickLogo}>
           <Image src="/logo.png" width={110} height={30} alt="logo" />
         </Link>
       </div>
