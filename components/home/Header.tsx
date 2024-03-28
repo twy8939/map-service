@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../common/Header';
-import styles from '../../styles/header.module.scss';
+import styles from '@/styles/header.module.scss';
 import { AiOutlineShareAlt } from 'react-icons/ai';
 import Link from 'next/link';
 import { VscFeedback } from 'react-icons/vsc';
