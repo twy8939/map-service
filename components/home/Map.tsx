@@ -3,6 +3,7 @@ import { NaverMap } from '@/types/map';
 import { Coordinates } from '@/types/store';
 import Script from 'next/script';
 import React, { useEffect, useRef } from 'react';
+import styles from '@/styles/map.module.scss';
 
 type Props = {
   mapId?: string;
@@ -52,7 +53,7 @@ const Map = ({
         src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NCP_CLIENT_ID}`}
         onReady={initializeMap}
       />
-      <div id={mapId} style={{ width: '100%', height: '100%' }} />
+      <div id={mapId} className={styles.map} />
     </>
   );
 };
