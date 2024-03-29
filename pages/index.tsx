@@ -23,7 +23,14 @@ const Home: NextPage<Props> = ({ stores }) => {
   return (
     <Fragment>
       <HomeHeader />
-      <main style={{ width: '100%', height: '100%' }}>
+      <main
+        style={{
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden',
+          position: 'relative',
+        }}
+      >
         <MapSection />
         <DetailSection />
       </main>
