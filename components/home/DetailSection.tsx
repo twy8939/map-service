@@ -4,6 +4,7 @@ import { IoIosArrowUp } from 'react-icons/io';
 import useSWR from 'swr';
 import { Store } from '@/types/store';
 import { CURRENT_STORE_KEY } from '@/hooks/useCurrentStore';
+import DetailContent from './DetailContent';
 
 const DetailSection = () => {
   const { data: currentStore } = useSWR<Store>(CURRENT_STORE_KEY);
@@ -26,6 +27,7 @@ const DetailSection = () => {
         <p className={styles.title}>
           {currentStore?.name || '매장을 선택해주세요'}
         </p>
+        <DetailContent currentStore={currentStore} expanded={expanded} />
       </div>
     </div>
   );
