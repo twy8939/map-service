@@ -13,7 +13,7 @@ export default function Header({ onClickLogo, rightElements }: HeaderProps) {
     <header className={styles.header}>
       <div className={styles.flexItem}>
         <Link href="/" className={styles.box} onClick={onClickLogo}>
-          <Image src="/logo.png" width={110} height={30} alt="logo" />
+          <Image src="/logo.WebP" width={110} height={30} alt="logo" priority />
         </Link>
       </div>
       {rightElements && <div className={styles.flexItem}>{rightElements}</div>}
