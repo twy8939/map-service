@@ -1,4 +1,4 @@
-import { Marker } from '@/types/map';
+import type { Marker } from '@/types/map';
 import React, { useEffect } from 'react';
 
 const Marker = ({ map, coordinates, icon, onClick }: Marker): undefined => {
