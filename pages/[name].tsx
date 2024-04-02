@@ -4,6 +4,8 @@ import { Store } from '@/types/store';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import styles from '@/styles/detail.module.scss';
+import { useRouter } from 'next/router';
+import useCurrentStore from '@/hooks/useCurrentStore';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const stores = (await import('../public/stores.json')).default;
@@ -24,6 +26,17 @@ interface Props {
 }
 
 const StoreDetail: NextPage<Props> = ({ store }) => {
+  const router = useRouter();
+
+  const { setCurrentStore } = useCurrentStore();
+
+  const goToMap = () => {
+    setCurrentStore(store);
+    router.push(
+      `/?zoom=15&lat=${store.coordinates[0]}&lng=${store.coordinates[1]}`
+    );
+  };
+
   const expanded = true;
   return (
     <div
@@ -31,7 +44,7 @@ const StoreDetail: NextPage<Props> = ({ store }) => {
     >
       <DetailHeader
         expanded={expanded}
-        handleArrowClick={() => null}
+        handleArrowClick={goToMap}
         currentStore={store}
       />
       <DetailContent currentStore={store} expanded={expanded} />
