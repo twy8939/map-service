@@ -1,14 +1,11 @@
-import Header from '@/components/common/Header';
-import Link from 'next/link';
 import React, { Fragment, useEffect } from 'react';
-import { AiOutlineShareAlt } from 'react-icons/ai';
-import { VscFeedback } from 'react-icons/vsc';
 import MapSection from '@/components/home/MapSection';
 import { NextPage } from 'next';
 import { Store } from '@/types/store';
 import useStores from '@/hooks/useStores';
 import HomeHeader from '@/components/home/Header';
 import DetailSection from '@/components/home/DetailSection';
+import { NextSeo } from 'next-seo';
 
 interface Props {
   stores: Store[];
@@ -22,6 +19,7 @@ const Home: NextPage<Props> = ({ stores }) => {
   }, [initializeStores, stores]);
   return (
     <Fragment>
+      <NextSeo title="매장 지도" description="매장 지도 서비스" />
       <HomeHeader />
       <main
         style={{
