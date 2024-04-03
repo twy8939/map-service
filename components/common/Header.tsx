@@ -12,7 +12,12 @@ export default function Header({ onClickLogo, rightElements }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.flexItem}>
-        <Link href="/" className={styles.box} onClick={onClickLogo}>
+        <Link
+          href="/"
+          className={styles.box}
+          onClick={onClickLogo}
+          aria-label="홈으로 이동"
+        >
           <Image src="/logo.WebP" width={110} height={30} alt="logo" priority />
         </Link>
       </div>
