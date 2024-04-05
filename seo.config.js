@@ -1,4 +1,4 @@
-export default {
+const seo = {
     titleTemplate: '%s - Next Map Service',
     openGraph: {
         type: 'website',
@@ -12,5 +12,13 @@ export default {
             rel: 'shortcut icon',
             href: '/favicon.ico'
         }
+    ],
+    additionalMetaTags: [
+        {
+            name: 'naver-site-verification',
+            content: '43a5c2815788866bf551b7fb7c42c92d8802facf',
+        }
     ]
 }
+
+export default seo;
