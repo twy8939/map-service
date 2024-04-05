@@ -18,7 +18,7 @@ export default function Header({ onClickLogo, rightElements }: HeaderProps) {
           onClick={onClickLogo}
           aria-label="홈으로 이동"
         >
-          <Image src="/logo.WebP" width={110} height={30} alt="logo" priority />
+          <Image src="/logo.webp" width={110} height={30} alt="logo" priority />
         </Link>
       </div>
       {rightElements && <div className={styles.flexItem}>{rightElements}</div>}
