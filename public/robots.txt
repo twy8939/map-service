@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://map-service-two.vercel.app
+
+# Sitemaps
+Sitemap: https://map-service-two.vercel.app/sitemap.xml
