@@ -19,7 +19,11 @@ const Home: NextPage<Props> = ({ stores }) => {
   }, [initializeStores, stores]);
   return (
     <Fragment>
-      <NextSeo title="매장 지도" description="매장 지도 서비스" />
+      <NextSeo
+        title="매장 지도"
+        description="매장 지도 서비스"
+        canonical="https://map-service-two.vercel.app"
+      />
       <HomeHeader />
       <main
         style={{
