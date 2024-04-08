@@ -17,8 +17,11 @@ const seo = {
         {
             name: 'naver-site-verification',
             content: '43a5c2815788866bf551b7fb7c42c92d8802facf',
+        },
+        {
+            name: 'google-site-verification',
+            content: 'KuK5X8JUULZTHEiuARw-4ekavAPcPYRYB8yxeWkGFr4'
         }
     ]
 }
-
 export default seo;
