@@ -1,8 +1,15 @@
 import Header from '@/components/common/Header';
 import { NextSeo } from 'next-seo';
 import React, { Fragment } from 'react';
+import { GetServerSideProps, NextPage } from 'next';
+import { getFeedbackListFromFirestore } from '@/firebase/feedback';
+import { Feedback } from '@/types/feedback';
 
-export default function feedback() {
+interface Props {
+  initialFeedbackList: Feedback[];
+}
+
+export const FeedbackPage: NextPage<Props> = ({ initialFeedbackList }) => {
   return (
     <Fragment>
       <NextSeo
@@ -11,7 +18,26 @@ export default function feedback() {
         canonical="https://map-service-two.vercel.app/feedback"
       />
       <Header />
-      <main></main>
+      <main
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden',
+          touchAction: 'pinch-zoom',
+        }}
+      >
+        피드백
+      </main>
     </Fragment>
   );
-}
+};
+export default FeedbackPage;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {
+      initalFeedbackList: await getFeedbackListFromFirestore(),
+    },
+  };
+};
