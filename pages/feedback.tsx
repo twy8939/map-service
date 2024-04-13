@@ -4,6 +4,7 @@ import React, { Fragment } from 'react';
 import { GetServerSideProps, NextPage } from 'next';
 import { getFeedbackListFromFirestore } from '@/firebase/feedback';
 import { Feedback } from '@/types/feedback';
+import FeedbackSection from '@/components/feedback/FeedbackSection';
 
 interface Props {
   initialFeedbackList: Feedback[];
@@ -16,6 +17,9 @@ export const FeedbackPage: NextPage<Props> = ({ initialFeedbackList }) => {
         title="피드백"
         description="매장 지도 서비스에 대한 피드백을 받습니다."
         canonical="https://map-service-two.vercel.app/feedback"
+        openGraph={{
+          url: 'https://inflearn-nextjs.vercel.app/feedback',
+        }}
       />
       <Header />
       <main
@@ -27,7 +31,7 @@ export const FeedbackPage: NextPage<Props> = ({ initialFeedbackList }) => {
           touchAction: 'pinch-zoom',
         }}
       >
-        피드백
+        <FeedbackSection initialFeedbackList={initialFeedbackList} />
       </main>
     </Fragment>
   );
@@ -37,7 +41,7 @@ export default FeedbackPage;
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
-      initalFeedbackList: await getFeedbackListFromFirestore(),
+      initialFeedbackList: await getFeedbackListFromFirestore(),
     },
   };
 };

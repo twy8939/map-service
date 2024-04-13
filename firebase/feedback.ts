@@ -1,4 +1,11 @@
-import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore';
+import {
+  addDoc,
+  collection,
+  getDocs,
+  limit,
+  orderBy,
+  query,
+} from 'firebase/firestore';
 import type { Feedback } from '../types/feedback';
 import { firestore } from './index';
 
@@ -16,4 +23,8 @@ export async function getFeedbackListFromFirestore(): Promise<Feedback[]> {
   });
 
   return initialFeedbackList;
+}
+
+export function addFeedbackToFirestore(newFeedback: Feedback): void {
+  addDoc(feedbackListCollection, newFeedback).then();
 }
