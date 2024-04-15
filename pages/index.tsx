@@ -23,6 +23,9 @@ const Home: NextPage<Props> = ({ stores }) => {
         title="매장 지도"
         description="매장 지도 서비스"
         canonical="https://map-service-two.vercel.app"
+        openGraph={{
+          url: 'https://map-service-two.vercel.app',
+        }}
       />
       <HomeHeader />
       <main
